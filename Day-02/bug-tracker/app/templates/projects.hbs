@@ -1,0 +1,8 @@
+<h3>Projects # : {{model.length}}</h3>
+<ol>
+	{{#each model as |project| }}
+		<li>{{project.name}} ({{project.bugs.length}}) {{link-to "Bugs" "projects.project.bugs" project}}</li>
+	{{/each}}
+	
+</ol>
+{{outlet}}
