@@ -147,25 +147,11 @@
 
 			var self = this;
 			//React to model changes
-			calculator.onChange('salary', function(){
+			calculator.onChange('all', function(){
 				self.render();
 			});
 
-			calculator.onChange('basic', function(){
-				self.render();
-			});
-
-			calculator.onChange('hra', function(){
-				self.render();
-			});
-
-			calculator.onChange('da', function(){
-				self.render();
-			});
-
-			calculator.onChange('tax', function(){
-				self.render();
-			});
+			
 		}
 		$(document).ready(function(){
 			window.calculator = new SalaryCalculator();
