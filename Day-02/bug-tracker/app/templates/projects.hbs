@@ -1,8 +1,14 @@
 <h3>Projects # : {{model.length}}</h3>
+<div>
+	<label for="">New Project : </label>
+	{{input type="text" placeholder="Enter the project name" value=projectName}}
+	<button {{action "createProject" on="click"}}>Save</button>
+</div>
 <ol>
 	{{#each model as |project| }}
 		<li>{{project.name}} ({{project.bugs.length}}) {{link-to "Bugs" "projects.project.bugs" project}}</li>
 	{{/each}}
 	
 </ol>
+<hr>
 {{outlet}}

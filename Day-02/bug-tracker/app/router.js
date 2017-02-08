@@ -11,9 +11,6 @@ Router.map(function() {
   	this.route('project', { path: ':slug'}, function(){
     	this.route('bugs');	
     });
-    
-
-    
   });
 });
 

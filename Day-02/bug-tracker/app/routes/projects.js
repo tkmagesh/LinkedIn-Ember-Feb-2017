@@ -1,20 +1,7 @@
 import Ember from 'ember';
 
-let Bug = Ember.Object.extend({
-	name : '',
-	description : '',
-	project : '',
-	severity : 1
-});
-
-let Project = Ember.Object.extend({
-	name : '',
-	description : '',
-	bugs : [],
-	slug : Ember.computed('name', function(){
-		return this.get('name').dasherize();
-	})
-});
+import Project from '../models/Project';
+import Bug from '../models/Bug';
 
 export default Ember.Route.extend({
 	model(){
@@ -54,5 +41,15 @@ export default Ember.Route.extend({
 		});
 
 		return [invMgmt, paySys];
+	},
+	actions : {
+		createProject : function(){
+			var currentController = this.get('controller');
+			let projectName = currentController.get('projectName');
+			var newProject = Project.create({name : projectName});
+			//this.modelFor('projects').pushObject(newProject);
+			currentController.model.pushObject(newProject);
+			currentController.set('projectName', '');
+		}
 	}
 });
